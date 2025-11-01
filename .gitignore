@@ -1,0 +1,14 @@
+# Gradle
+.gradle/
+build/
+**/*.iml
+.idea/
+local.properties
+.DS_Store
+*.log
+*.zip
+*.jar
+*.war
+*.apk
+*.aab
+.kotlin/ # For newer Kotlin Gradle plugin versions
