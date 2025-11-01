@@ -1,4 +1,4 @@
-.PHONY: help build run testProgressBars testSpinners
+.PHONY: help build run testProgressBars testSpinners testTables
 
 help:
 	@echo "Available targets:"
@@ -6,6 +6,7 @@ help:
 	@echo "  run               - Run the main application"
 	@echo "  testProgressBars  - Run various progress bar examples"
 	@echo "  testSpinners      - Run various spinner examples"
+	@echo "  testTables        - Run various table examples"
 	@echo "  clean             - Clean build artifacts"
 
 build:
@@ -131,4 +132,62 @@ testSpinners:
 	@echo ""
 	@echo "======================================"
 	@echo "All spinner examples completed!"
+	@echo "======================================"
+
+testTables:
+	@echo "======================================"
+	@echo "Table Examples"
+	@echo "======================================"
+	@echo ""
+	@echo "1. Users table (default UNICODE style)"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example users --rows 5" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "2. Products table with pricing"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example products --rows 5" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "3. Task board"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example tasks --rows 5" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "4. Dependencies list"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example dependencies --rows 5" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "5. Makefile targets"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example makefile --rows 7" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "6. CI/CD Pipeline status"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example pipeline --rows 7" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "7. ASCII style (users table)"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example users --style ASCII --rows 4" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "8. MINIMAL style (products table)"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example products --style MINIMAL --rows 4" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "9. MARKDOWN style (tasks table)"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example tasks --style MARKDOWN --rows 4" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "10. COMPACT style (dependencies)"
+	@echo "--------------------------------------"
+	./gradlew run --args="table --example dependencies --style COMPACT --rows 4" --console=plain --quiet
+	@echo ""
+	@echo "======================================"
+	@echo "All table examples completed!"
 	@echo "======================================"
