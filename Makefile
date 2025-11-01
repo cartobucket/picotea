@@ -1,10 +1,11 @@
-.PHONY: help build run testProgressBars
+.PHONY: help build run testProgressBars testSpinners
 
 help:
 	@echo "Available targets:"
 	@echo "  build             - Build the project"
 	@echo "  run               - Run the main application"
 	@echo "  testProgressBars  - Run various progress bar examples"
+	@echo "  testSpinners      - Run various spinner examples"
 	@echo "  clean             - Clean build artifacts"
 
 build:
@@ -62,4 +63,72 @@ testProgressBars:
 	@echo ""
 	@echo "======================================"
 	@echo "All examples completed!"
+	@echo "======================================"
+
+testSpinners:
+	@echo "======================================"
+	@echo "Spinner Examples"
+	@echo "======================================"
+	@echo ""
+	@echo "1. BRAILLE spinner (default)"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --duration 3 --label 'Processing'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "2. DOTS spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style DOTS --duration 3 --label 'Loading'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "3. LINE spinner (ASCII compatible)"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style LINE --duration 3 --label 'Working'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "4. ARC spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style ARC --duration 3 --label 'Calculating'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "5. ARROW spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style ARROW --duration 3 --label 'Syncing'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "6. CIRCLE spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style CIRCLE --duration 3 --label 'Downloading'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "7. GROWING_DOTS spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style GROWING_DOTS --duration 3 --label 'Building'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "8. ELLIPSIS spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style ELLIPSIS --duration 3 --label 'Waiting'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "9. BOX spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style BOX --duration 3 --label 'Compiling'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "10. With status messages"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style BRAILLE --duration 5 --label 'Deploying' --with-messages" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "11. BOUNCE spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style BOUNCE --duration 3 --label 'Testing'" --console=plain --quiet
+	@echo ""
+	@sleep 1
+	@echo "12. BAR spinner"
+	@echo "--------------------------------------"
+	./gradlew run --args="spinner --style BAR --duration 3 --label 'Installing'" --console=plain --quiet
+	@echo ""
+	@echo "======================================"
+	@echo "All spinner examples completed!"
 	@echo "======================================"

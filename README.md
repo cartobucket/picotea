@@ -9,6 +9,7 @@ pico-tea provides pre-built, customizable components for picocli applications, m
 ## Components
 
 - [ProgressBar](docs/components/ProgressBar.md) - Customizable progress bars with multiple styles and display options
+- [Spinner](docs/components/Spinner.md) - Animated spinners for indeterminate operations
 
 ## Quick Start
 
@@ -24,6 +25,7 @@ dependencies {
 
 ### Basic Usage
 
+**ProgressBar:**
 ```kotlin
 import com.cartobucket.picocli.components.ProgressBar
 
@@ -39,6 +41,20 @@ repeat(100) {
 progress.finish()
 ```
 
+**Spinner:**
+```kotlin
+import com.cartobucket.picocli.components.spinner.Spinner
+
+val spinner = Spinner.builder()
+    .withLabel("Loading")
+    .build()
+
+// do work
+performOperation()
+
+spinner.finish()
+```
+
 ## Examples
 
 This project includes working examples demonstrating all components. Run them with:
@@ -50,8 +66,12 @@ This project includes working examples demonstrating all components. Run them wi
 # Run progress bar examples
 make testProgressBars
 
+# Run spinner examples
+make testSpinners
+
 # Run with custom options
 ./gradlew run --args="progressBar --end 100 --show-rate --show-eta"
+./gradlew run --args="spinner --style BRAILLE --duration 5 --with-messages"
 ```
 
 ## Documentation
@@ -59,6 +79,7 @@ make testProgressBars
 - [Getting Started](docs/getting-started.md)
 - [Components](docs/components/)
   - [ProgressBar](docs/components/ProgressBar.md)
+  - [Spinner](docs/components/Spinner.md)
 
 ## Building
 

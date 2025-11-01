@@ -11,7 +11,8 @@ import kotlin.system.exitProcess
     version = ["pico-tea 1.0"],
     description = ["A picocli component library demonstration"],
     subcommands = [
-        ProgressBarCommand::class
+        ProgressBarCommand::class,
+        SpinnerCommand::class
     ]
 )
 class Main : Runnable {
@@ -20,6 +21,7 @@ class Main : Runnable {
         println()
         println("Available commands:")
         println("  progressBar  - Demonstrate customizable progress bars")
+        println("  spinner      - Demonstrate customizable spinners")
         println()
         println("Use 'pico-tea <command> --help' for more information about a command.")
     }
