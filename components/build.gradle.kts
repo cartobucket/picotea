@@ -4,7 +4,7 @@ plugins {
     signing
 }
 
-group = "com.cartobucket"
+group = "com.cartobucket.pico-tea"
 version = "0.0.1"
 
 repositories {
@@ -28,6 +28,10 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
+
+            groupId = "com.cartobucket.pico-tea"
+            artifactId = "picotea"
+            version = project.version.toString()
 
             pom {
                 name.set("Pico Tea Components")
