@@ -79,9 +79,25 @@ make testProgressBars
 - Kotlin 2.1.0+
 - Gradle 8.10.2+
 
+## Publishing
+
+This library is published to Maven Central. To publish a new version:
+
+1. Set up the required secrets in your GitHub repository:
+   - `OSSRH_USERNAME`: Your Sonatype OSSRH username
+   - `OSSRH_PASSWORD`: Your Sonatype OSSRH password
+   - `GPG_PRIVATE_KEY`: Your GPG private key (export with `gpg --armor --export-secret-keys your-key-id`)
+   - `GPG_PASSPHRASE`: Your GPG key passphrase
+
+2. Update the version in `components/build.gradle.kts`
+
+3. Create and publish a GitHub release, which will trigger the publication workflow
+
+4. For SNAPSHOT versions, the workflow can be triggered manually via workflow_dispatch
+
 ## License
 
-[Add your license here]
+MIT License
 
 ## Contributing
 
