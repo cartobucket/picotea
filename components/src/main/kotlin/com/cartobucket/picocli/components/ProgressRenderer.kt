@@ -11,7 +11,7 @@ class ProgressRenderer(
     private val autoDetectWidth: Boolean = true
 ) {
     private var lastLineLength = 0
-    private var isInteractive = System.console() != null && System.getenv("TERM") != null
+    private var isInteractive = detectInteractiveMode()
 
     companion object {
         private const val DEFAULT_WIDTH = 80
@@ -19,6 +19,21 @@ class ProgressRenderer(
         private const val ANSI_CLEAR_LINE = "\r\u001b[K"
         private const val ANSI_HIDE_CURSOR = "\u001b[?25l"
         private const val ANSI_SHOW_CURSOR = "\u001b[?25h"
+    }
+
+    /**
+     * Detect if we're in an interactive terminal that supports ANSI codes
+     */
+    private fun detectInteractiveMode(): Boolean {
+        // Check if TERM is set (indicates terminal environment)
+        val term = System.getenv("TERM")
+        if (term == null || term == "dumb") {
+            return false
+        }
+
+        // Check if output is a TTY by checking if it's System.err or System.out
+        // and we have a TERM environment variable
+        return output == System.err || output == System.out
     }
 
     /**
