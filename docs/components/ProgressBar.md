@@ -5,7 +5,7 @@ A customizable progress bar component for CLI applications with support for mult
 ## Demo
 
 <video width="800" controls>
-  <source src="./recordings/progressBar.mp4" type="video/mp4">
+  <source src="recordings/progressBar.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
