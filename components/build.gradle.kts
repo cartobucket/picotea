@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     implementation("info.picocli:picocli:4.7.6")
+    implementation("org.jline:jline:3.25.1")
 }
 
 kotlin {

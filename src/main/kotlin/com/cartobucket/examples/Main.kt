@@ -13,7 +13,8 @@ import kotlin.system.exitProcess
     subcommands = [
         ProgressBarCommand::class,
         SpinnerCommand::class,
-        TableCommand::class
+        TableCommand::class,
+        VirtualTableCommand::class
     ]
 )
 class Main : Runnable {
@@ -21,9 +22,10 @@ class Main : Runnable {
         println("pico-tea - picocli component library")
         println()
         println("Available commands:")
-        println("  progressBar  - Demonstrate customizable progress bars")
-        println("  spinner      - Demonstrate customizable spinners")
-        println("  table        - Demonstrate customizable tables")
+        println("  progressBar   - Demonstrate customizable progress bars")
+        println("  spinner       - Demonstrate customizable spinners")
+        println("  table         - Demonstrate customizable tables")
+        println("  virtualTable  - Demonstrate interactive virtual tables with navigation")
         println()
         println("Use 'pico-tea <command> --help' for more information about a command.")
     }
